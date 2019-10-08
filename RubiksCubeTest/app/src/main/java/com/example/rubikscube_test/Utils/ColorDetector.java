@@ -1,8 +1,12 @@
-package com.example.rubikscube_test;
+package com.example.rubikscube_test.Utils;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.Log;
+
+import com.example.rubikscube_test.Data.FaceColor;
+import com.example.rubikscube_test.Fragment.LoadCubeFragment;
+import com.example.rubikscube_test.MainActivity;
 
 import java.util.Comparator;
 

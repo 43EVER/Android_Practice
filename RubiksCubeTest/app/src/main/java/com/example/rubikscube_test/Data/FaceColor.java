@@ -1,4 +1,4 @@
-package com.example.rubikscube_test;
+package com.example.rubikscube_test.Data;
 
 import android.graphics.Color;
 

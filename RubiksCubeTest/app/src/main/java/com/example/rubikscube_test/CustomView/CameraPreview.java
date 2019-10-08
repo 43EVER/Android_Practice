@@ -1,4 +1,4 @@
-package com.example.rubikscube_test;
+package com.example.rubikscube_test.CustomView;
 
 import android.content.Context;
 import android.graphics.Rect;

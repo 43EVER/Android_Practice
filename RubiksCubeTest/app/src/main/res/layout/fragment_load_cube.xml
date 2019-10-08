@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.rubikscube_test.LoadCubeFragment">
+    tools:context="com.example.rubikscube_test.Fragment.LoadCubeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"

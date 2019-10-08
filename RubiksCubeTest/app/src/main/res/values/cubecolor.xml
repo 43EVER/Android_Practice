@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="cube_colors">
+        <item>#AB4E4F</item>
+        <item>#C7865E</item>
+        <item>#C9C469</item>
+        <item>#C1D9D9</item>
+        <item>#1C9B64</item>
+        <item>#245DAC</item>
+    </array>
+</resources>

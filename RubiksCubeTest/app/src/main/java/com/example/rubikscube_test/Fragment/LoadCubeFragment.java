@@ -1,4 +1,4 @@
-package com.example.rubikscube_test;
+package com.example.rubikscube_test.Fragment;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,12 +24,16 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
+import com.example.rubikscube_test.CustomView.CameraPreview;
+import com.example.rubikscube_test.Data.FaceColor;
+import com.example.rubikscube_test.MainActivity;
+import com.example.rubikscube_test.R;
+import com.example.rubikscube_test.Utils.ColorDetector;
 
 import java.io.ByteArrayOutputStream;
 
-import static com.example.rubikscube_test.ColorDetector.getColorName;
+import static com.example.rubikscube_test.Utils.ColorDetector.getColorName2;
 
 
 public class LoadCubeFragment extends Fragment {
@@ -98,12 +102,8 @@ public class LoadCubeFragment extends Fragment {
     public void takePicture(View view) {
         if (currentFace > 5) {
             setResult();
-
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction tx = fm.beginTransaction();
-            tx.remove(fm.findFragmentByTag("ShowCube"));
-            tx.replace(R.id.container, new ShowCubeFragment(), "ShowCube"); 
-            tx.commit();
+            ((MainActivity) getActivity()).fragmentList.set(0, new ShowCubeFragment());
+            ((MainActivity) getActivity()).adapter.notifyDataSetChanged();
             return;
         }
 
@@ -118,7 +118,8 @@ public class LoadCubeFragment extends Fragment {
     }
 
     private void setResult() {
-        StringBuilder[] data = getColorName(capturedFaces);
+        StringBuilder[] data = getColorName2(capturedFaces);
+        Log.e("Data", data[6].toString());
         String[] colorName = new String[6];
         String cubeString;
         for (int i = 0; i < 6; i++) colorName[i] = data[i].toString();
@@ -198,9 +199,9 @@ public class LoadCubeFragment extends Fragment {
             cpw.addView(l);
         }
         TextView tv = new TextView(view.getContext());
+        tv.setBackgroundColor(0x616161);
         tv.setText("current face: " + MainActivity.FACES_ORDER.charAt(currentFace));
         tv.setPadding(margin, margin, margin, margin);
-        tv.setBackgroundColor(0xF0FFFFFF);
         tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         cpw.addView(tv);
         tvCurrentFace = tv;
